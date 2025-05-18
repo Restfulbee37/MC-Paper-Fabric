@@ -1,0 +1,4 @@
+rcon-host = "0.0.0.0"
+rcon-port = "60005"
+rcon-password = ""
+rcon-colored = false

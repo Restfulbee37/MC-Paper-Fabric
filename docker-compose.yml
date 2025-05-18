@@ -1,0 +1,211 @@
+services:
+  nginx-proxy:
+    image: nginx:latest
+    ports:
+      - 8123:8123
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    container_name: nginx-proxy
+    restart: unless-stopped
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.8
+  liveatlas:
+    image: php:apache
+    container_name: liveatlas
+    volumes:
+      - ./live-atlas:/var/www/html
+    restart: unless-stopped
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.5
+  paper-dynmap-webserver:
+    image: php:8.4.5-apache
+    container_name: paper-dynmap-webserver
+    command: >
+      bash -c "docker-php-ext-install mysqli && apache2-foreground"
+    volumes:
+      - ./plugins/dynmap/web:/var/www/html:ro
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.6
+  fabric-dynmap-webserver:
+    image: php:8.4.5-apache
+    container_name: fabric-dynmap-webserver
+    command: >
+      bash -c "docker-php-ext-install mysqli && apache2-foreground"
+    volumes:
+      - ./MCFABRIC-data/dynmap/web:/var/www/html:ro
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.7
+  MCPMySQL:
+    image: mysql:8.0.41-debian
+    container_name: MCPMySQL
+    restart: no
+    environment:
+      MYSQL_ROOT_PASSWORD: MCPF_root123
+      MYSQL_DATABASE: dynmap
+      MYSQL_USER: dynmapMCP
+      MYSQL_PASSWORD: MCPF_password
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.25
+    user: 1080:1080
+  MCFMySQL:
+    image: mysql:8.0.41-debian
+    container_name: MCFMySQL
+    restart: no
+    environment:
+      MYSQL_ROOT_PASSWORD: MCPF_root123
+      MYSQL_DATABASE: dynmap
+      MYSQL_USER: dynmapMCF
+      MYSQL_PASSWORD: MCPF_password
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.26
+    user: 1080:1080
+  MCFABRIC:
+    image: itzg/minecraft-server:latest
+    container_name: MCPFABRIC
+    environment:
+      EULA: "TRUE"
+      MODE: "survival"
+      VERSION: "1.21.4"
+      DIFFICULTY: "hard"
+      TYPE: FABRIC
+      #HARDCORE: true
+      VIEW_DISTANCE: "32"
+      SIMULATION_DISTANCE: "32"
+      SERVER_PORT: 60000
+      MAX_MEMORY: '16G'
+      LEVEL: 'fabric_world'
+      INIT_MEMORY: '4G'
+      MOTD: "Feels like FABRIC"
+      #OPS: "Your MC name"
+      ENABLE_QUERY: true
+      RCON_PORT: 60003
+      RCON_PASSWORD: "rconpassword"
+      SERVER_NAME: "FABRIC"
+      OP_PERMISSION_LEVEL: 4
+      BROADCAST_RCON_TO_OPS: true
+      BROADCAST_CONSOLE_TO_OPS: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./MCFABRIC-data:/data
+      - ./mods:/mods
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.4
+    user: 1080:1080
+
+  MCPAPER:
+    image: itzg/minecraft-server:latest
+    container_name: MCPAPERF
+    environment:
+      EULA: "TRUE"
+      MODE: "creative"
+      VERSION: "1.21.4"
+      DIFFICULTY: "hard"
+      TYPE: PAPER
+      PAPER_CHANNEL: "DEFAULT" #"experimental"
+      #HARDCORE: true
+      VIEW_DISTANCE: "32"
+      SIMULATION_DISTANCE: "32"
+      SERVER_PORT: 60001
+      MAX_MEMORY: '16G'
+      LEVEL: 'HUB'
+      INIT_MEMORY: '4G'
+      MOTD: "Sharp like PAPER"
+      #OPS: "Your MC name"
+      ENABLE_QUERY: true
+      RCON_PORT: 60002
+      RCON_PASSWORD: "rconpassword"
+      SERVER_NAME: "PAPER"
+      OP_PERMISSION_LEVEL: 4
+      BROADCAST_RCON_TO_OPS: true
+      BROADCAST_CONSOLE_TO_OPS: true
+    stdin_open: true
+    tty: true
+    restart: on-failure:5
+    volumes:
+      - ./MCPAPER-data:/data
+      - ./plugins:/data/plugins
+    networks:
+      MCPF_net:
+         ipv4_address: 192.168.25.3
+    user: 1080:1080
+
+  MCPFPROXY:
+    image: itzg/mc-proxy
+    container_name: MCPFPROXY
+    ports:
+      - "60004:60004"
+    volumes:
+      - ./MCPROXY-data/velocity.toml:/config/velocity.toml:ro
+      - ./MCPROXY-data/forwarding.secret:/config/forwarding.secret:ro
+      - ./MCPROXY-data/server:/server
+    environment:
+      TYPE: VELOCITY
+      ENABLE_RCON: true
+      DEBUG: false
+      RCON_PORT: 60005
+      VELOCITY_VERSION: "3.4.0-SNAPSHOT"
+    networks:
+      MCPF_net:
+        ipv4_address: 192.168.25.2
+    user: 1080:1080
+
+  mcpfbackup:
+    build:
+     context: ./backup
+     dockerfile: ./Dockerfile
+    container_name: mcpfbackup
+    environment:
+      BACKUP_INTERVAL: 60m
+      BACKUP_NAME: "MCPF-bak"
+      INITIAL_DELAY: 5m
+      PAPER_RCON_HOST: 192.168.25.3
+      PAPER_RCON_PORT: 60002
+      PAPER_RCON_PASSWORD: "rconpassword"
+      FABRIC_RCON_HOST: 192.168.25.4
+      FABRIC_RCON_PORT: 60003
+      FABRIC_RCON_PASSWORD: "rconpassword"
+      PRUNE_BACKUP_DAYS: 14
+      PAPER_SERVER_PORT: 60001
+      FABRIC_SERVER_PORT: 60000
+      DEST_DIR: "/backups"
+      PAPER_SRC_DIR: "/PAPER-data"
+      FABRIC_SRC_DIR: "/FABRIC-data"
+      PLUGIN_DIR: "/plugins"
+    depends_on:
+      MCFABRIC:
+        condition: service_healthy
+      MCPAPER:
+        condition: service_healthy
+      MCPFPROXY:
+        condition: service_healthy
+    volumes:
+     - ./MCPAPER-data:/PAPER-data:ro
+     - ./MCFABRIC-data:/FABRIC-data:ro
+     - ./MCPF-backups:/backups
+     - ./plugins:/plugins:ro
+     - ./world-list.txt:/world-list.txt:ro
+    networks:
+      MCPF_net:
+        ipv4_address: 192.168.25.9
+      
+
+volumes:
+    MCPAPER-data:
+    MCFABRIC-data:
+    MCPROXY-data:
+    MCPF-backups:
+
+networks:
+  MCPF_net:
+    name: MCPF_net
+    ipam:
+      config:
+        - subnet: 192.168.25.0/24

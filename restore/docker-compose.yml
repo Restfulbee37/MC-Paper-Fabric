@@ -1,0 +1,25 @@
+services:
+  restore-mc:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      BACKUP_DIR: /backups
+      PAPER_DATA_DIR: /PAPER-data
+      FABRIC_DATA_DIR: /FABRIC-data
+      PLUGIN_DIR: /plugins
+      world_list: /worlds.txt
+      tmp_dir: /tmp_store
+    volumes:
+      - ../MCPAPER-data:/PAPER-data
+      - ../MCFABRIC-data:/FABRIC-data
+      - ../MCPF-backups:/backups
+      - ../world-list.txt:/worlds.txt
+      - ../plugins:/plugins
+    user: 1080:1080
+
+volumes:
+  minecraft-data: {}
+  MCPF-backups: {}
+  world-list: {}
+  plugins: {}
