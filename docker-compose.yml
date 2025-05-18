@@ -115,7 +115,7 @@ services:
       SIMULATION_DISTANCE: "32"
       SERVER_PORT: 60001
       MAX_MEMORY: '16G'
-      LEVEL: 'HUB'
+      LEVEL: 'paper_world'
       INIT_MEMORY: '4G'
       MOTD: "Sharp like PAPER"
       #OPS: "Your MC name"

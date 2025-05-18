@@ -2,20 +2,41 @@ tmp/*
 
 !configs/server.properties
 
+################## MCFABRIC ###################
 MCFABRIC-data/*
+
+!MCFABRIC-data/config/
+MCFABRIC-data/config/*
+!MCFABRIC-data/config/FabricProxy-Lite.toml
+
 !MCFABRIC-data/dynmap/
 MCFABRIC-data/dynmap/*
 !MCFABRIC-data/dynmap/configuration.txt
+
 !MCFABRIC-data/server.properties
+
+
+################## MCPAPER ###################
 
 MCPAPER-data/*
 !MCPAPER-data/server.properties
 
+!MCPAPER-data/config/
+MCPAPER-data/config/*
+!MCPAPER-data/config/paper-global.yml
+
+################## MCPF-backups ###################
+
+
 MCPF-backups/*
 !MCPF-backups/.gitkeep
 
+##############################################
+
 mods/*
 !mods/Dynmap-3.7-beta-8-fabric-1.21.3.jar
+!mods/FabricProxy-Lite-2.9.0.jar
+
 
 plugins/*
 !plugins/dynmap/
