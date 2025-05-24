@@ -65,7 +65,7 @@ cd MC-Paper-Fabric
         - **Your PC:** Leave at localhost
     - Nginx files in the ```nginx/`` directory shouldn't have to be changed as the IP addresses are for the internal Docker network not external.
 5. **Permissions**
-    - On a Linux system you must set the file permissions for all volume directories to **1080**:
+    - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
 5. **Start the Services**
     ```bash
