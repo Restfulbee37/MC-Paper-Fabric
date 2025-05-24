@@ -63,7 +63,7 @@ cd MC-Paper-Fabric
         - **External hosting;** Use your external IP address or domain
         - **Local Network but on a different system:** Use the internal IP of that system
         - **Your PC:** Leave at localhost
-    - Nginx files in the ```nginx/`` directory shouldn't have to be changed as the IP addresses are for the internal Docker network not external.
+    - Nginx files in the ```nginx/``` directory shouldn't have to be changed as the IP addresses are for the internal Docker network not external.
 5. **Permissions**
     - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
