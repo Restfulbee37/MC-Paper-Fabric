@@ -1,6 +1,8 @@
 # Minecraft Paper Fabric
 Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports Dynmap using one web UI with LiveAtlas and supports multi-paper worlds using the Multiverse Plugin.
 
+**Versions:** Currently tested on 1.21.4, this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However they have not been tested.
+
 ## Overview
 MC-Paper-Fabric is a Docker-based setup that enables a hybrid Minecraft server environment, integrating:
 - **Paper Server**: For high-performance player optimised worlds, features plugin support. Good for things like player Hubs or vanilla Minecraft worlds.
