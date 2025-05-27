@@ -10,12 +10,7 @@ MCFABRIC-data/*
 MCFABRIC-data/config/*
 !MCFABRIC-data/config/FabricProxy-Lite.toml
 
-!MCFABRIC-data/dynmap/
-MCFABRIC-data/dynmap/*
-!MCFABRIC-data/dynmap/configuration.txt
-
 !MCFABRIC-data/server.properties
-
 
 ################## MCPAPER ###################
 
@@ -28,19 +23,14 @@ MCPAPER-data/config/*
 
 ################## MCPF-backups ###################
 
-
 MCPF-backups/*
 !MCPF-backups/.gitkeep
 
 ##############################################
 
 mods/*
-!mods/Dynmap-3.7-beta-8-fabric-1.21.3.jar
 !mods/FabricProxy-Lite-2.9.0.jar
 
 
 plugins/*
-!plugins/dynmap/
-plugins/dynmap/*
-!plugins/dynmap/configuration.txt
-!plugins/Dynmap-3.7-beta-8-spigot.jar
+

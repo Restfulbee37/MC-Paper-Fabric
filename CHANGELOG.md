@@ -9,8 +9,8 @@
     - Supports multiple servers with one webui out of the box without the need for a third party tool like LiveAtlas
     - Rendering is a LOT quicker
 
-- [ ] Upgraded servers to 1.21.5!
+- [x] Upgraded servers to 1.21.5!
 - [ ] Added BlueMap support for both servers into one UI
-- [ ] Removed Dynmap plugin, mod and config files.
+- [x] Removed Dynmap plugin, mod and config files.
 - [ ] Removed LiveAtlas support
 - [ ] Rcon mentioned in README
