@@ -71,7 +71,7 @@ services:
     environment:
       EULA: "TRUE"
       MODE: "survival"
-      VERSION: "1.21.4"
+      VERSION: "1.21.5"
       DIFFICULTY: "hard"
       TYPE: FABRIC
       #HARDCORE: true
@@ -106,10 +106,10 @@ services:
     environment:
       EULA: "TRUE"
       MODE: "creative"
-      VERSION: "1.21.4"
+      VERSION: "1.21.5"
       DIFFICULTY: "hard"
       TYPE: PAPER
-      PAPER_CHANNEL: "DEFAULT" #"experimental"
+      PAPER_CHANNEL: "experimental" #"DEFAULT"
       #HARDCORE: true
       VIEW_DISTANCE: "32"
       SIMULATION_DISTANCE: "32"

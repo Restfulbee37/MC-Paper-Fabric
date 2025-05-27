@@ -1,6 +1,7 @@
 tmp/*
 release-bundle/*
 !configs/server.properties
+MCPROXY-data/server/logs/*
 
 ################## MCFABRIC ###################
 MCFABRIC-data/*
