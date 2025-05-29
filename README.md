@@ -1,5 +1,5 @@
 # Minecraft Paper Fabric
-Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports Dynmap using one web UI with LiveAtlas and supports multi-paper worlds using the Multiverse Plugin.
+Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports BlueMaps using one web UI for both servers and supports multi-paper worlds using the Multiverse Plugin.
 
 ## Versions:
  Currently updated for 1.21.5, this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
@@ -14,7 +14,7 @@ MC-Paper-Fabric is a Docker-based setup that enables a hybrid Minecraft server e
 - **Paper Server**: For high-performance player optimised worlds, features plugin support. Good for things like player Hubs or vanilla Minecraft worlds.
 - **Fabric Server**: For lightweight modding capabilities.
 - **Velocity Proxy**: To route players between the two servers while only needing to connect to one.
-- **LiveAtlas:** A web-based map interface which combines the dynmap interfaces from both Paper and Fabric. Meaning players will only need to visit one web interface to access both Dynmap UIs.
+- **BlueMaps:** A web-based map interface which combines the BlueMaps instances from both Paper and Fabric. Meaning players will only need to visit one web interface to access both server UIs.
 
 This configuration allows players to connect through a single proxy and enjoy both plugin and mod functionalities.
 
@@ -23,9 +23,7 @@ This configuration allows players to connect through a single proxy and enjoy bo
 
 - **Velocity Proxy:** Directs player connections to the appropriate backend server.
 
-- **LiveAtlas Mapping:** Provides a unified, modern map interface for both servers.
-
-- **Nginx Reverse Proxy:** Serves LiveAtlas and merges multiple Dynmap instances.
+- **BlueMaps:** Provides a unified, modern map interface for both servers.
 
 - **Automated Backups:** Regular backups of server data to prevent data loss.
 
@@ -43,8 +41,7 @@ MC-Paper-Fabric/
 |- configs/             # Default configs
 |- mods/                # Fabric mods go here
 |- plugins/             # Paper plugins go here
-|- live-atlas/          # LiveAtlas frontend
-|- nginx/               # Nginx config file
+|- BlueMaps  /          # BlueMaps shared configuration (render files will go here)
 |- docker-compose.yml   # Docker compose file
 |- world-list.txt       # List of worlds to include in backups -> FABRIC WORLD MUST BE LAST
 ```
@@ -66,42 +63,40 @@ cd MC-Paper-Fabric
     - Place your Paper plugins in the ```plugins/``` directory.
 3. **Configure Servers**
     - Update ```world-list.txt``` with the names of the worlds you wish to backup. **NOTE:** Your Fabric world **MUST** be the bottom of this list for this to work, see example in the file.
-4. **Configure LiveAtlas and Nginx**
-    - Update the index file at ```live-atlas/index.html``` under the ```servers``` section (Line: 67). Update the localhost domain to reflect your situation otherwise you will get **CORS** errors:
-        - **External hosting;** Use your external IP address or domain
-        - **Local Network but on a different system:** Use the internal IP of that system
-        - **Your PC:** Leave at localhost
-    - Nginx files in the ```nginx/``` directory shouldn't have to be changed as the IP addresses are for the internal Docker network not external.
+4. **Configure BlueMaps**
+    - If you keep everything as default, it should work out of the box, BlueMaps will render automatically on server start.
+    - If you change the world names:
+        - **For the Paper world:** Navigate to *BlueMaps/config/maps* and change the header *"world"* in each of the 'MCPAPER' configs to reflect your new world name.
+        - **For the Fabric world:** Navigate to *MCFABRIC-data/config/bluemap/maps* and change the header *"world"* in the three fabric world config files to reflect your new world name.
+    - If you have multiple Paper worlds using something like Multiverse:
+        1. Make sure these worlds are initialized i.e. you should have three seperate world files one for the overworld, one for the nether and one for the end. Paper will automatically do this when you create the new world.
+        2. Clone the current **MCPAPER** config files located in *BlueMaps/config/maps* (these cloned files will be used for your second world).
+        3. Change the name of these config files (these can be to whatever you want).
+        4. Inside each cloned config file change the header *"world"* to reflect the directory name of your second world and change the header *"name"* to whatever you like (this will be what shows up in your BlueMaps UI).
+        5. To have more than 2 Paper worlds, repeat **steps 1-4** for each world.
 5. **Permissions**
     - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
-5. **Start the Services**
+6. **Start the Services**
     ```bash
     docker compose up -d
     ```
-    This command will pull and build relevant Docker images and start the Velocity proxy, Paper server, Fabric server, Nginx server, LiveAtlas and the backup system.
-6. **Navigate between servers**
+    This command will pull and build relevant Docker images and start the Velocity proxy, Paper server, Fabric server and the backup system.
+7. **Navigate between servers**
     - To navigate between servers within Minecraft you would type in the commands shown below:
     ```php
     /server paper
     /server fabric
     ```
-7. **Start Dynmap Renders**
-    - After world creation you must initialise the Dynmap render with the following commands:
-    ```bash
-    # Make sure you're in the relevant server
-    /dynmap fullrender fabric # 'fabric' would be your fabric world name this is just an example
-    /dynamp fullrender paper # 'paper' would be your paper world name this is also just an example
-    ```
 
-## LiveAtlas Integration with Dynmap
-LiveAtlas provides a modern interface for viewing Minecraft worlds using the Dynmap backend.  
+## BlueMaps
+BlueMap is a program that reads your Minecraft world files and generates not only a map, but also 3D-models of the whole surface. With the web-app you then can look at those in your browser and basically view the world as if you were ingame.  
 In this setup:
-- Utilises Dynmap's MySQL database to read the backend of each instance.
-- Nginx serves as a reverse proxy to stop CORS errors from the internal Docker network and to merge both Paper and Fabric servers.
-- LiveAtlas is configured to display maps from both servers in the same interface.  
+- Utilises BlueMaps on both servers to get live player updates for players in all servers.
+- Merges both instances into one UI to make it easier to navigate for a user (similar to the legacy implementation using LiveAtlas with Dynmap).
+- Live updates world changes and allows for a spectator style view.  
 
-For more information on configuring multiple servers with LiveAtlas, refer to the [LiveAtlas Wiki](https://github.com/JLyne/LiveAtlas/wiki/Configuring-Multiple-Servers).
+For more information on configuring multiple servers with BlueMaps, refer to the [BlueMaps Wiki](https://bluemap.bluecolored.de/wiki/getting-started/ServerNetworks.html).
 
 ## Backup and Restore System
 An automated backup and restore system is implemented using Docker:
@@ -124,8 +119,11 @@ The backup and restore scripts are located in the ```backup/``` and ```restore/`
 - [PaperMC](https://papermc.io/) for the Paper Server.
 - [FabricMC](https://fabricmc.net/) for the Fabric Server.
 - [Velocity](https://papermc.io/software/velocity) for the Minecraft proxy.
-- [LiveAtlas](https://github.com/JLyne/LiveAtlas) for the Dynmap web-based interface.
+- [BlueMaps](https://bluemap.bluecolored.de/) for the BlueMaps interactive world UI.
+
+### Legacy Credits
 - [Dynmap](https://github.com/webbukkit/dynmap) for the real-time map rendering.
+- [LiveAtlas](https://github.com/JLyne/LiveAtlas) for the Dynmap web-based interface.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/Restfulbee37/MC-Paper-Fabric/blob/main/LICENSE.md) file for details.

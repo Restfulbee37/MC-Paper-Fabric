@@ -6,7 +6,7 @@
     - Already supports 1.21.5, dynmap still does not (faster update times)
     - Better looking UI and allows for a spectator like view which is pretty cool
     - Fixes MySQL render issues of black screens after server restart
-    - Supports multiple servers with one webui out of the box without the need for a third party tool like LiveAtlas
+    - Supports multiple servers with one webui out of the box without the need for a third party tool like LiveAtlas.
     - Rendering is a LOT quicker
 
 - [x] Upgraded servers to 1.21.5!
