@@ -15,6 +15,7 @@ MC-Paper-Fabric is a Docker-based setup that enables a hybrid Minecraft server e
 - **Fabric Server**: For lightweight modding capabilities.
 - **Velocity Proxy**: To route players between the two servers while only needing to connect to one.
 - **BlueMaps:** A web-based map interface which combines the BlueMaps instances from both Paper and Fabric. Meaning players will only need to visit one web interface to access both server UIs.
+- **RCON:** Allows for easy server management for both Paper and Fabric servers without the need to be on the Minecraft server directly.
 
 This configuration allows players to connect through a single proxy and enjoy both plugin and mod functionalities.
 
@@ -28,6 +29,7 @@ This configuration allows players to connect through a single proxy and enjoy bo
 - **Automated Backups:** Regular backups of server data to prevent data loss.
 
 - **Dockerized Deployment:** Simplifies setup and management using Docker and Docker Compose.
+- **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
 
 ## Repository Structure
 ```bash
@@ -44,6 +46,7 @@ MC-Paper-Fabric/
 |- BlueMaps  /          # BlueMaps shared configuration (render files will go here)
 |- docker-compose.yml   # Docker compose file
 |- world-list.txt       # List of worlds to include in backups -> FABRIC WORLD MUST BE LAST
+|- rcon-cli.sh          # Allows and admin to issue commands to either Minecraft servers
 ```
 
 ## Prerequisites
@@ -98,8 +101,38 @@ In this setup:
 
 For more information on configuring multiple servers with BlueMaps, refer to the [BlueMaps Wiki](https://bluemap.bluecolored.de/wiki/getting-started/ServerNetworks.html).
 
+## RCON CLI
+RCON is an easy way to manage your Minecraft servers from the command line without the need to be directly logged into the Minecraft server.   
+All commands in RCON are the same as you would get if you were on the server with OP privileges.   
+
+A script has been written called *rcon-cli.sh* that will take an admin to the console of the requested server where they can issue commands as they would on the actual Minecraft server.
+```bash
+$ ./rcon-cli.sh -h
+Usage: ./rcon-cli.sh [OPTION]
+
+Options:
+  -f, --fabric       Attaches to Fabric server RCON
+  -p, --paper        Attaches to Paper server RCON
+  -h, --help         Show this help message
+```
+
+An example usage would look like this:
+```bash
+$ ./rcon-cli.sh -p
+Attaching to Paper RCON, type 'exit' to quit
+> say Hello this is a demonstration of RCON!
+
+> gamemode survival Restfulbee37
+Set Restfulbee37's game mode to Survival Mode
+> give Restfulbee37 minecraft:diamond_sword
+Gave 1 [Diamond Sword] to Restfulbee37
+> exit
+RCON exited, welcome back!
+$
+```
+
 ## Backup and Restore System
-An automated backup and restore system is implemented using Docker:
+An automated backup and restore system utilizing RCON and implemented in Docker:
 - **Backups:** Regular backups are created and stored in the ```MCPF-backups/``` directory. The backup process includes:
     - Flushing world data to disk.
     - Archiving specified worlds listed in ```world-list.txt```.

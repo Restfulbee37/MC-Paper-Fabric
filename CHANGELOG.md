@@ -13,7 +13,4 @@
 - [x] Added BlueMap support for both servers into one UI
 - [x] Removed Dynmap plugin, mod and config files.
 - [x] Removed LiveAtlas support
-- [ ] Rcon mentioned in README
-
-# TODO
-- README
+- [x] Rcon mentioned in README
