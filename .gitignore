@@ -3,16 +3,18 @@ release-bundle/*
 !configs/server.properties
 MCPROXY-data/server/logs/*
 
+################## BlueMaps ###################
+BlueMaps/web/maps/*
+!BlueMaps/web/maps/.gitkeep
+
 ################## MCFABRIC ###################
 MCFABRIC-data/*
 
 !MCFABRIC-data/config/
 MCFABRIC-data/config/*
+!MCFABRIC-data/config/bluemap
 !MCFABRIC-data/config/FabricProxy-Lite.toml
 !MCFABRIC-data/server.properties
-
-!MCFABRIC-data/config/bluemap
-MCFABRIC-data/config/bluemap/*
 
 mods/*
 !mods/bluemap-5.7-fabric.jar

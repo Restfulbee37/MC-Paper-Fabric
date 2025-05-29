@@ -10,7 +10,10 @@
     - Rendering is a LOT quicker
 
 - [x] Upgraded servers to 1.21.5!
-- [ ] Added BlueMap support for both servers into one UI
+- [x] Added BlueMap support for both servers into one UI
 - [x] Removed Dynmap plugin, mod and config files.
 - [x] Removed LiveAtlas support
 - [ ] Rcon mentioned in README
+
+# TODO
+- README

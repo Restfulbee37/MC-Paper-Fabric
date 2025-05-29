@@ -29,6 +29,8 @@ services:
     volumes:
       - ./MCFABRIC-data:/data
       - ./mods:/mods
+      - ./BlueMaps/data:/app/data
+      - ./BlueMaps/web:/app/web
     networks:
       MCPF_net:
          ipv4_address: 192.168.25.4
@@ -66,10 +68,17 @@ services:
     volumes:
       - ./MCPAPER-data:/data
       - ./plugins:/data/plugins
+      - ./BlueMaps/config:/plugins/BlueMap
+      - ./BlueMaps/data:/app/data
+      - ./BlueMaps/web:/app/web
     networks:
       MCPF_net:
          ipv4_address: 192.168.25.3
+    ports:
+      - "8100:8100"
     user: 1080:1080
+    depends_on:
+      - MCFABRIC
 
   MCPFPROXY:
     image: itzg/mc-proxy
@@ -130,7 +139,7 @@ services:
       MCPF_net:
         ipv4_address: 192.168.25.9
       
-
+      
 volumes:
     MCPAPER-data:
     MCFABRIC-data:
