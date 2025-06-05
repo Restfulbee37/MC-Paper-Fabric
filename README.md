@@ -143,7 +143,7 @@ An automated backup and restore system utilizing RCON and implemented in Docker:
 cd restore
 docker compose up
 ```
-It will provide labelled error codes if any occur or give *Exit code: 0* if successful.
+It will provide labelled error codes if any occur or give ***Exit code: 0*** if successful.
 
 The backup and restore scripts are located in the ```backup/``` and ```restore/``` directories, respectively.
 
