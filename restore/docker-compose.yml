@@ -1,8 +1,6 @@
 services:
   restore-mc:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: ghcr.io/restfulbee37/mcpf-restore:latest
     environment:
       BACKUP_DIR: /backups
       PAPER_DATA_DIR: /PAPER-data

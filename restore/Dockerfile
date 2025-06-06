@@ -1,6 +1,8 @@
 FROM alpine:latest
 
-#Create Working Dir
+LABEL maintainer="Restfulbee37"
+LABEL org.opencontainers.image.source="https://github.com/Restfulbee37/MC-Paper-Fabric"
+
 RUN mkdir -p /tmp_store
 
 RUN apk -U --no-cache add \

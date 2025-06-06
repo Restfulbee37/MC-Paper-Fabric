@@ -1,5 +1,8 @@
 FROM alpine:latest AS builder
 
+LABEL maintainer="Restfulbee37"
+LABEL org.opencontainers.image.source="https://github.com/Restfulbee37/MC-Paper-Fabric"
+
 ARG TARGETARCH="amd"
 ARG TARGETVARIANT="64"
 

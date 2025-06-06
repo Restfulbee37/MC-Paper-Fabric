@@ -101,9 +101,7 @@ services:
     user: 1080:1080
 
   mcpfbackup:
-    build:
-     context: ./backup
-     dockerfile: ./Dockerfile
+    image: ghcr.io/restfulbee37/mcpf-backup:latest
     container_name: mcpfbackup
     environment:
       BACKUP_INTERVAL: 60m
