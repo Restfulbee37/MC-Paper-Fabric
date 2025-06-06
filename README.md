@@ -68,15 +68,17 @@ cd MC-Paper-Fabric
     - Update ```world-list.txt``` with the names of the worlds you wish to backup. **NOTE:** Your Fabric world **MUST** be the bottom of this list for this to work, see example in the file.
 4. **Configure BlueMaps**
     - If you keep everything as default, it should work out of the box, BlueMaps will render automatically on server start.
-    - If you change the world names:
-        - **For the Paper world:** Navigate to *BlueMaps/config/maps* and change the header *"world"* in each of the 'MCPAPER' configs to reflect your new world name.
-        - **For the Fabric world:** Navigate to *MCFABRIC-data/config/bluemap/maps* and change the header *"world"* in the three fabric world config files to reflect your new world name.
-    - If you have multiple Paper worlds using something like Multiverse:
-        1. Make sure these worlds are initialized i.e. you should have three seperate world files one for the overworld, one for the nether and one for the end. Paper will automatically do this when you create the new world.
-        2. Clone the current **MCPAPER** config files located in *BlueMaps/config/maps* (these cloned files will be used for your second world).
-        3. Change the name of these config files (these can be to whatever you want).
-        4. Inside each cloned config file change the header *"world"* to reflect the directory name of your second world and change the header *"name"* to whatever you like (this will be what shows up in your BlueMaps UI).
-        5. To have more than 2 Paper worlds, repeat **steps 1-4** for each world.
+    
+    ### **If you change the world names:**
+    - **For the Paper world:** Navigate to *BlueMaps/config/maps* and change the header *"world"* in each of the 'MCPAPER' configs to reflect your new world name.
+    - **For the Fabric world:** Navigate to *MCFABRIC-data/config/bluemap/maps* and change the header *"world"* in the three fabric world config files to reflect your new world name.
+
+    ### **If you have multiple Paper worlds using something like Multiverse:**
+    1. Make sure these worlds are initialized i.e. you should have three seperate world files one for the overworld, one for the nether and one for the end. Paper will automatically do this when you create the new world.
+    2. Clone the current **MCPAPER** config files located in *BlueMaps/config/maps* (these cloned files will be used for your second world).
+    3. Change the name of these config files (these can be to whatever you want).
+    4. Inside each cloned config file change the header *"world"* to reflect the directory name of your second world and change the header *"name"* to whatever you like (this will be what shows up in your BlueMaps UI).
+    5. To have more than 2 Paper worlds, repeat **steps 1-4** for each world.
 5. **Permissions**
     - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
