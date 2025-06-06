@@ -1,0 +1,15 @@
+{
+  "render-threads-enabled": true,
+  "maps": {
+    "fabric_world": {
+      "update-enabled": true
+    },
+    "fabric_world_the_end": {
+      "update-enabled": true
+    },
+    "fabric_world_the_nether": {
+      "update-enabled": true
+    }
+  },
+  "hidden-players": []
+}

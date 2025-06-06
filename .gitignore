@@ -1,20 +1,25 @@
 tmp/*
 release-bundle/*
 !configs/server.properties
+MCPROXY-data/server/logs/*
+
+################## BlueMaps ###################
+BlueMaps/web/maps/*
+!BlueMaps/web/maps/.gitkeep
 
 ################## MCFABRIC ###################
 MCFABRIC-data/*
 
 !MCFABRIC-data/config/
 MCFABRIC-data/config/*
+!MCFABRIC-data/config/bluemap
 !MCFABRIC-data/config/FabricProxy-Lite.toml
-
-!MCFABRIC-data/dynmap/
-MCFABRIC-data/dynmap/*
-!MCFABRIC-data/dynmap/configuration.txt
-
 !MCFABRIC-data/server.properties
 
+mods/*
+!mods/bluemap-5.7-fabric.jar
+!mods/FabricProxy-Lite-2.9.0.jar
+!mods/fabric-api-0.125.0+1.21.5.jar
 
 ################## MCPAPER ###################
 
@@ -25,21 +30,15 @@ MCPAPER-data/*
 MCPAPER-data/config/*
 !MCPAPER-data/config/paper-global.yml
 
-################## MCPF-backups ###################
+!plugins/BlueMap/
+plugins/BlueMap/*
 
+plugins/*
+!plugins/bluemap-5.7-paper.jar
+
+################## MCPF-backups ###################
 
 MCPF-backups/*
 !MCPF-backups/.gitkeep
 
 ##############################################
-
-mods/*
-!mods/Dynmap-3.7-beta-8-fabric-1.21.3.jar
-!mods/FabricProxy-Lite-2.9.0.jar
-
-
-plugins/*
-!plugins/dynmap/
-plugins/dynmap/*
-!plugins/dynmap/configuration.txt
-!plugins/Dynmap-3.7-beta-8-spigot.jar
