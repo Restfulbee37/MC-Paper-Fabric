@@ -123,7 +123,7 @@ Attaching to Paper RCON, type 'exit' to quit
 > say Hello this is a demonstration of RCON!
 
 > gamemode survival Restfulbee37
-Set Restfulbee37's game mode to Survival Mode
+Set Restfulbee37 game mode to Survival Mode
 > give Restfulbee37 minecraft:diamond_sword
 Gave 1 [Diamond Sword] to Restfulbee37
 > exit
