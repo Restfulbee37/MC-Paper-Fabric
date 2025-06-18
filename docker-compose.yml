@@ -5,7 +5,7 @@ services:
     environment:
       EULA: "TRUE"
       MODE: "survival"
-      VERSION: "1.21.5"
+      VERSION: "1.21.6"
       DIFFICULTY: "hard"
       TYPE: FABRIC
       #HARDCORE: true
@@ -42,7 +42,7 @@ services:
     environment:
       EULA: "TRUE"
       MODE: "creative"
-      VERSION: "1.21.5"
+      VERSION: "1.21.6"
       DIFFICULTY: "hard"
       TYPE: PAPER
       PAPER_CHANNEL: "experimental" #"DEFAULT"
