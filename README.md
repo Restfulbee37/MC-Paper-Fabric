@@ -1,8 +1,9 @@
 # Minecraft Paper Fabric
 Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports BlueMaps using one web UI for both servers and supports multi-paper worlds using the Multiverse Plugin.
 
-## Versions:
- Currently updated for 1.21.5, this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+## Versions: (1.21.6 in development)
+ Currently updated for 1.21.5. (1.21.6 to come once BlueMaps releases their jar)
+ V2.1 currently works for 1.21.6 and 1.21.5 (jars will need changing) this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
  
  To change to a different version, you must:
  1. Update Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
