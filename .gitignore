@@ -17,9 +17,9 @@ MCFABRIC-data/config/*
 !MCFABRIC-data/server.properties
 
 mods/*
-!mods/bluemap-5.7-fabric.jar
+!mods/bluemap-5.8-fabric.jar
 !mods/FabricProxy-Lite-2.9.0.jar
-!mods/fabric-api-0.125.0+1.21.5.jar
+!mods/fabric-api-0.128.2+1.21.6.jar
 
 ################## MCPAPER ###################
 
@@ -34,7 +34,7 @@ MCPAPER-data/config/*
 plugins/BlueMap/*
 
 plugins/*
-!plugins/bluemap-5.7-paper.jar
+!plugins/bluemap-5.8-paper.jar
 
 ################## MCPF-backups ###################
 
