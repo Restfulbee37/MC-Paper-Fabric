@@ -2,8 +2,8 @@
 
 - [ ] Creation of install script
     - [ ] Allows the option of picking versions and it will set up the environment based on the version you choose
-- [ ] Updated for 1.21.7
-- [ ] Updated for 1.21.8 
+- [x] Updated for 1.21.7
+- [x] Updated for 1.21.8 
 
 ## Future Plans
 - [ ] Ability to update your instance to a newer Minecraft version

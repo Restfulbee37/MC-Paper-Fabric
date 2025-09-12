@@ -8,7 +8,7 @@ services:
       VERSION: "1.21.6"
       DIFFICULTY: "hard"
       TYPE: FABRIC
-      #HARDCORE: true
+      HARDCORE: false
       VIEW_DISTANCE: "32"
       SIMULATION_DISTANCE: "32"
       SERVER_PORT: 60000
@@ -16,7 +16,7 @@ services:
       LEVEL: 'fabric_world'
       INIT_MEMORY: '4G'
       MOTD: "Feels like FABRIC"
-      #OPS: "Your MC name"
+      OPS: ""
       ENABLE_QUERY: true
       RCON_PORT: 60003
       RCON_PASSWORD: "rconpassword"
@@ -46,7 +46,7 @@ services:
       DIFFICULTY: "hard"
       TYPE: PAPER
       PAPER_CHANNEL: "experimental" #"DEFAULT"
-      #HARDCORE: true
+      HARDCORE: false
       VIEW_DISTANCE: "32"
       SIMULATION_DISTANCE: "32"
       SERVER_PORT: 60001
@@ -54,7 +54,7 @@ services:
       LEVEL: 'paper_world'
       INIT_MEMORY: '4G'
       MOTD: "Sharp like PAPER"
-      #OPS: "Your MC name"
+      OPS: ""
       ENABLE_QUERY: true
       RCON_PORT: 60002
       RCON_PASSWORD: "rconpassword"
