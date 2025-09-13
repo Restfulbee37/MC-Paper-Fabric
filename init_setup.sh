@@ -122,4 +122,4 @@ echo "Setting permissions for servers..."
 sudo chown -R 1080:1080 ./MCFABRIC-data ./MCPAPER-data ./plugins ./mods ./MCPF-backups ./MCPROXY-data ./BlueMaps ./world-list.txt
 
 echo "Setup completed successfully. Starting servers..."
-#docker compose up -d
+docker compose up -d

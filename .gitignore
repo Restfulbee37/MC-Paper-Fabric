@@ -3,6 +3,9 @@ release-bundle/*
 !configs/server.properties
 MCPROXY-data/server/logs/*
 
+################## MCPROXY ###################
+MCPROXY-data/server/velocity-*.jar
+
 ################## BlueMaps ###################
 BlueMaps/web/maps/*
 !BlueMaps/web/maps/.gitkeep
@@ -17,9 +20,6 @@ MCFABRIC-data/config/*
 !MCFABRIC-data/server.properties
 
 mods/*
-!mods/bluemap-5.8-fabric.jar
-!mods/FabricProxy-Lite-2.9.0.jar
-!mods/fabric-api-0.128.2+1.21.6.jar
 
 ################## MCPAPER ###################
 
@@ -34,7 +34,6 @@ MCPAPER-data/config/*
 plugins/BlueMap/*
 
 plugins/*
-!plugins/bluemap-5.8-paper.jar
 
 ################## MCPF-backups ###################
 
