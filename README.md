@@ -55,6 +55,8 @@ MC-Paper-Fabric/
 
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
+- [yq](WIRTE MORE ABOUT HOW TO INSTALL THIS) APT!
+
 ## Setup Instructions
 
 1. **Clone the Repository**

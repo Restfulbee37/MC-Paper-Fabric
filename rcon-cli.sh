@@ -22,6 +22,7 @@ case "$1" in
         ;;
     -h|--help|"")
         show_help
+        exit 0
         ;;
     *)
         echo "Invalid option: $1"
