@@ -1,26 +1,140 @@
 {
     "1.21.8": {
-        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/Q8ssLFZp/fabric-api-0.133.0%2B1.21.8.jar",
-        "bluemapfabric": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-fabric.jar",
-        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/7Juknjr6/FabricProxy-Lite-2.10.0.jar",
-        "bluemappaper": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/CF23l2iP/fabric-api-0.133.4%2B1.21.8.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/plVwynim/bluemap-5.11-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
     },
     "1.21.7": {
         "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/JntuF9Ul/fabric-api-0.129.0%2B1.21.7.jar",
-        "bluemapfabric": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-fabric.jar",
-        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/7Juknjr6/FabricProxy-Lite-2.10.0.jar",
-        "bluemappaper": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/plVwynim/bluemap-5.11-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
     },
     "1.21.6": {
         "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/F5TVHWcE/fabric-api-0.128.2%2B1.21.6.jar",
-        "bluemapfabric": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-fabric.jar",
-        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/7Juknjr6/FabricProxy-Lite-2.10.0.jar",
-        "bluemappaper": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/plVwynim/bluemap-5.11-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
     },
     "1.21.5": {
         "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/kKEGlsne/fabric-api-0.128.2%2B1.21.5.jar",
-        "bluemapfabric": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.7/bluemap-5.7-fabric.jar",
-        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/7Juknjr6/FabricProxy-Lite-2.10.0.jar",
-        "bluemappaper": "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.21.4": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/p96k10UR/fabric-api-0.119.4%2B1.21.4.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.21.3": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/wLq4rGsB/fabric-api-0.114.1%2B1.21.3.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.21.2": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/UEjZZNue/fabric-api-0.106.1%2B1.21.2.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.21.1": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/9xIK4e8l/fabric-api-0.116.6%2B1.21.1.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.21": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/oGwyXeEI/fabric-api-0.102.0%2B1.21.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/KqB3UA0q/FabricProxy-Lite-2.10.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/Dr2hvJBc/bluemap-5.7-fabric.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/bhZhBtEw/bluemap-5.11-paper.jar"
+    },
+    "1.20.5": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/GCdY4I8I/fabric-api-0.97.8%2B1.20.5.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/pKclvAHk/FabricProxy-Lite-2.8.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/sr3EYjbw/BlueMap-5.3-fabric-1.20.5.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/ucikJabQ/bluemap-5.10-spigot.jar"
+    },
+    "1.20.4": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/BPX6fK06/fabric-api-0.97.3%2B1.20.4.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/Mxw3Cbsk/FabricProxy-Lite-2.7.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/lHRktt6S/BlueMap-5.3-fabric-1.20.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/ucikJabQ/bluemap-5.10-spigot.jar"
+    },
+    "1.20.3": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/Yolngp3s/fabric-api-0.91.1%2B1.20.3.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/Mxw3Cbsk/FabricProxy-Lite-2.7.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/lHRktt6S/BlueMap-5.3-fabric-1.20.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/ucikJabQ/bluemap-5.10-spigot.jar"
+    },
+    "1.20.2": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/8GVp7wDk/fabric-api-0.91.6%2B1.20.2.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/Mxw3Cbsk/FabricProxy-Lite-2.7.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/lHRktt6S/BlueMap-5.3-fabric-1.20.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/ucikJabQ/bluemap-5.10-spigot.jar"
+    },
+    "1.20.1": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/UapVHwiP/fabric-api-0.92.6%2B1.20.1.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/XJmDAnj5/FabricProxy-Lite-2.6.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/lHRktt6S/BlueMap-5.3-fabric-1.20.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/ucikJabQ/bluemap-5.10-spigot.jar"
+    },
+    "1.19.4": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/nyAmoHlr/fabric-api-0.87.2%2B1.19.4.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/HuwRuGXe/FabricProxy-Lite-2.5.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/yT3V7dyZ/BlueMap-5.3-fabric-1.19.4.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.19.3": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/jyKnHEDY/fabric-api-0.76.1%2B1.19.3.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/rCwKd1CC/FabricProxy-Lite-2.4.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/9IzodMcO/BlueMap-3.13-fabric-1.19.3.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.19.2": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/6g95K303/fabric-api-0.77.0%2B1.19.2.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v2.3.0/FabricProxy-Lite-2.3.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/51epxpKG/BlueMap-3.13-fabric-1.19.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.19.1": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.58.5%2B1.19.1/fabric-api-0.58.5%2B1.19.1.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v2.3.0/FabricProxy-Lite-2.3.0.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/51epxpKG/BlueMap-3.13-fabric-1.19.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.19": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.58.0%2B1.19/fabric-api-0.58.0%2B1.19.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v2.1.1/FabricProxy-Lite-2.1.1.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/51epxpKG/BlueMap-3.13-fabric-1.19.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.18": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.44.0%2B1.18/fabric-api-0.44.0%2B1.18.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v1.1.6/FabricProxy-Lite-1.1.6.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/rXw4kyFY/BlueMap-5.3-fabric-1.18.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.17.1": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.46.1%2B1.17/fabric-api-0.46.1%2B1.17.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v1.1.5/FabricProxy-Lite-1.1.5.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/EtDSCoCZ/BlueMap-3.21-fabric-1.17.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.17": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.36.0%2B1.17/fabric-api-0.36.0%2B1.17.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v1.1.4/FabricProxy-Lite-1.1.4.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/EtDSCoCZ/BlueMap-3.21-fabric-1.17.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
+    },
+    "1.16.5": {
+        "fabricapi": "https://cdn.modrinth.com/data/P7dR8mSH/versions/0.42.0%2B1.16/fabric-api-0.42.0%2B1.16.jar",
+        "fabricproxy": "https://cdn.modrinth.com/data/8dI2tmqs/versions/v1.1.3/FabricProxy-Lite-1.1.3.jar",
+        "bluemapfabric": "https://cdn.modrinth.com/data/swbUV1cr/versions/WMdrKqRA/BlueMap-3.21-fabric-1.16.2.jar",
+        "bluemappaper": "https://cdn.modrinth.com/data/swbUV1cr/versions/TL5ElRWX/BlueMap-5.3-spigot.jar"
     }
 }

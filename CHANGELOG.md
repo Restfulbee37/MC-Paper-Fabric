@@ -6,7 +6,8 @@
 - [x] Updated for 1.21.8 
     - [x] Version support
     - [x] Bluemaps migration
-- [ ] Documentation upgrade
+- [x] Support more legacy versions of Minecraft
+- [ ] Documentation update
 
 ## Future Plans
 - [ ] Ability to update your instance to a newer Minecraft version

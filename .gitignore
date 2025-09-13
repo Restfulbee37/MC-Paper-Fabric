@@ -1,5 +1,6 @@
 tmp/*
 release-bundle/*
+.setup_config/scraper.py
 !configs/server.properties
 MCPROXY-data/server/logs/*
 
