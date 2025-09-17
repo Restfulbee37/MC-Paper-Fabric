@@ -7,7 +7,7 @@
     - [x] Version support
     - [x] Bluemaps migration
 - [x] Support more legacy versions of Minecraft
-- [ ] Documentation update
+- [x] Documentation update
 
 ## Future Plans
 - [ ] Ability to update your instance to a newer Minecraft version
