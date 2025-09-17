@@ -1,17 +1,8 @@
 # Minecraft Paper Fabric
 Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports BlueMaps using one web UI for both servers and supports multi-paper worlds using the Multiverse Plugin.
 
-## Versions:
- Currently updated for 1.21.6.
- V2.1 currently works for 1.21.6 and 1.21.5 (jars will need changing) this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
- 
- To change to a different version, you must:
- 1. Update Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
- 2. Amend the docker compose file environment variables **VERSION** under the services ```MCPAPER``` and ```MCFABRIC``` to your chosen version.
-
-
 ## Overview
-MC-Paper-Fabric is a Docker-based setup that enables a hybrid Minecraft server environment, integrating:
+MC-Paper-Fabric is a Docker-based setup that currently supports Minecraft versions between 1.21.8 and 1.16.5 that enables a hybrid Minecraft server environment, integrating:
 - **Paper Server**: For high-performance player optimised worlds, features plugin support. Good for things like player Hubs or vanilla Minecraft worlds.
 - **Fabric Server**: For lightweight modding capabilities.
 - **Velocity Proxy**: To route players between the two servers while only needing to connect to one.
@@ -32,9 +23,19 @@ This configuration allows players to connect through a single proxy and enjoy bo
 - **Dockerized Deployment:** Simplifies setup and management using Docker and Docker Compose.
 - **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
 
+## Versions:
+ V3.0 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+ 
+ To change to a different version, you must:
+ 1. Run the ```init_setup.sh``` script again and select your new version , this will download the mods and plugins for your selected version.
+ 2. Remove the old Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
+
+
+
 ## Repository Structure
 ```bash
 MC-Paper-Fabric/
+|- .setup_config/       # Contains all jar links for mods and plugins
 |- MCFABRIC-data/       # Fabric server configs and files
 |- MCPAPER-data/        # Paper server configs and files
 |- MCPROXY-data/        # Velocity proxy config files
@@ -48,12 +49,15 @@ MC-Paper-Fabric/
 |- docker-compose.yml   # Docker compose file
 |- world-list.txt       # List of worlds to include in backups -> FABRIC WORLD MUST BE LAST
 |- rcon-cli.sh          # Allows and admin to issue commands to either Minecraft servers
+|- init_setup.sh        # Setup/ update script to download mod and plugin jars automatically
 ```
 
 ## Prerequisites
 - [Docker](https://www.docker.com/get-started/)
 
 - [Docker Compose](https://docs.docker.com/compose/install/)
+
+- [yq](https://github.com/mikefarah/yq/)
 
 ## Setup Instructions
 
@@ -62,12 +66,15 @@ MC-Paper-Fabric/
 git clone https://github.com/Restfulbee37/MC-Paper-Fabric.git
 cd MC-Paper-Fabric
 ```
-2. **Add Mods and Plugins**
+2. **Install your Version**
+    - Run the script at the root of this directory ```init_setup.sh``` and follow the configuration options within the script. This will install the correct core mods and plugins for your chosen Minecraft version as well as set that Minecraft version in the docker-compose file. The script will also ask you to set your difficulty and your gamemode as well as Ops for the server.
+    - **NOTE**: There are some sudo commands in this script to do the permission settings at the end (see step 6) if you would prefer to do this manually please follow step 6 otherwise you can ignore step 6.
+3. **Add Mods and Plugins**
     - Place your Fabric mods in the ```mods/``` directory.
     - Place your Paper plugins in the ```plugins/``` directory.
-3. **Configure Servers**
+4. **Configure Servers**
     - Update ```world-list.txt``` with the names of the worlds you wish to backup. **NOTE:** Your Fabric world **MUST** be the bottom of this list for this to work, see example in the file.
-4. **Configure BlueMaps**
+5. **Configure BlueMaps**
     - If you keep everything as default, it should work out of the box, BlueMaps will render automatically on server start.
     
     ### **If you change the world names:**
@@ -80,15 +87,15 @@ cd MC-Paper-Fabric
     3. Change the name of these config files (these can be to whatever you want).
     4. Inside each cloned config file change the header *"world"* to reflect the directory name of your second world and change the header *"name"* to whatever you like (this will be what shows up in your BlueMaps UI).
     5. To have more than 2 Paper worlds, repeat **steps 1-4** for each world.
-5. **Permissions**
+6. **Permissions**
     - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
-6. **Start the Services**
+7. **Start the Services**
     ```bash
     docker compose up -d
     ```
     This command will pull and build relevant Docker images and start the Velocity proxy, Paper server, Fabric server and the backup system.
-7. **Navigate between servers**
+8. **Navigate between servers**
     - To navigate between servers within Minecraft you would type in the commands shown below:
     ```php
     /server paper

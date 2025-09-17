@@ -3,24 +3,24 @@ services:
     image: itzg/minecraft-server:latest
     container_name: MCPFABRIC
     environment:
-      EULA: "TRUE"
-      MODE: "survival"
-      VERSION: "1.21.6"
-      DIFFICULTY: "hard"
+      EULA: 'TRUE'
+      MODE: survival
+      VERSION: 1.21.8
+      DIFFICULTY: easy
       TYPE: FABRIC
-      #HARDCORE: true
-      VIEW_DISTANCE: "32"
-      SIMULATION_DISTANCE: "32"
+      HARDCORE: true
+      VIEW_DISTANCE: '32'
+      SIMULATION_DISTANCE: '32'
       SERVER_PORT: 60000
-      MAX_MEMORY: '16G'
-      LEVEL: 'fabric_world'
-      INIT_MEMORY: '4G'
-      MOTD: "Feels like FABRIC"
-      #OPS: "Your MC name"
+      MAX_MEMORY: 16G
+      LEVEL: fabric_world
+      INIT_MEMORY: 4G
+      MOTD: Feels like FABRIC
+      OPS: ''
       ENABLE_QUERY: true
       RCON_PORT: 60003
-      RCON_PASSWORD: "rconpassword"
-      SERVER_NAME: "FABRIC"
+      RCON_PASSWORD: rconpassword
+      SERVER_NAME: FABRIC
       OP_PERMISSION_LEVEL: 4
       BROADCAST_RCON_TO_OPS: true
       BROADCAST_CONSOLE_TO_OPS: true
@@ -33,32 +33,31 @@ services:
       - ./BlueMaps/web:/app/web
     networks:
       MCPF_net:
-         ipv4_address: 192.168.25.4
+        ipv4_address: 192.168.25.4
     user: 1080:1080
-
   MCPAPER:
     image: itzg/minecraft-server:latest
     container_name: MCPAPERF
     environment:
-      EULA: "TRUE"
-      MODE: "creative"
-      VERSION: "1.21.6"
-      DIFFICULTY: "hard"
+      EULA: 'TRUE'
+      MODE: survival
+      VERSION: 1.21.8
+      DIFFICULTY: easy
       TYPE: PAPER
-      PAPER_CHANNEL: "experimental" #"DEFAULT"
-      #HARDCORE: true
-      VIEW_DISTANCE: "32"
-      SIMULATION_DISTANCE: "32"
+      PAPER_CHANNEL: DEFAULT
+      HARDCORE: false
+      VIEW_DISTANCE: '32'
+      SIMULATION_DISTANCE: '32'
       SERVER_PORT: 60001
-      MAX_MEMORY: '16G'
-      LEVEL: 'paper_world'
-      INIT_MEMORY: '4G'
-      MOTD: "Sharp like PAPER"
-      #OPS: "Your MC name"
+      MAX_MEMORY: 16G
+      LEVEL: paper_world
+      INIT_MEMORY: 4G
+      MOTD: Sharp like PAPER
+      OPS: ''
       ENABLE_QUERY: true
       RCON_PORT: 60002
-      RCON_PASSWORD: "rconpassword"
-      SERVER_NAME: "PAPER"
+      RCON_PASSWORD: rconpassword
+      SERVER_NAME: PAPER
       OP_PERMISSION_LEVEL: 4
       BROADCAST_RCON_TO_OPS: true
       BROADCAST_CONSOLE_TO_OPS: true
@@ -73,18 +72,17 @@ services:
       - ./BlueMaps/web:/app/web
     networks:
       MCPF_net:
-         ipv4_address: 192.168.25.3
+        ipv4_address: 192.168.25.3
     ports:
-      - "8100:8100"
+      - 8100:8100
     user: 1080:1080
     depends_on:
       - MCFABRIC
-
   MCPFPROXY:
     image: itzg/mc-proxy
     container_name: MCPFPROXY
     ports:
-      - "60004:60004"
+      - 60004:60004
     volumes:
       - ./MCPROXY-data/velocity.toml:/config/velocity.toml:ro
       - ./MCPROXY-data/forwarding.secret:/config/forwarding.secret:ro
@@ -94,32 +92,31 @@ services:
       ENABLE_RCON: true
       DEBUG: false
       RCON_PORT: 60005
-      VELOCITY_VERSION: "3.4.0-SNAPSHOT"
+      VELOCITY_VERSION: 3.4.0-SNAPSHOT
     networks:
       MCPF_net:
         ipv4_address: 192.168.25.2
     user: 1080:1080
-
   mcpfbackup:
     image: ghcr.io/restfulbee37/mcpf-backup:latest
     container_name: mcpfbackup
     environment:
-      BACKUP_INTERVAL: 60m
-      BACKUP_NAME: "MCPF-bak"
+      BACKUP_INTERVAL: 60
+      BACKUP_NAME: MCPF-bak
       INITIAL_DELAY: 5m
       PAPER_RCON_HOST: 192.168.25.3
       PAPER_RCON_PORT: 60002
-      PAPER_RCON_PASSWORD: "rconpassword"
+      PAPER_RCON_PASSWORD: rconpassword
       FABRIC_RCON_HOST: 192.168.25.4
       FABRIC_RCON_PORT: 60003
-      FABRIC_RCON_PASSWORD: "rconpassword"
+      FABRIC_RCON_PASSWORD: rconpassword
       PRUNE_BACKUP_DAYS: 14
       PAPER_SERVER_PORT: 60001
       FABRIC_SERVER_PORT: 60000
-      DEST_DIR: "/backups"
-      PAPER_SRC_DIR: "/PAPER-data"
-      FABRIC_SRC_DIR: "/FABRIC-data"
-      PLUGIN_DIR: "/plugins"
+      DEST_DIR: /backups
+      PAPER_SRC_DIR: /PAPER-data
+      FABRIC_SRC_DIR: /FABRIC-data
+      PLUGIN_DIR: /plugins
     depends_on:
       MCFABRIC:
         condition: service_healthy
@@ -128,22 +125,14 @@ services:
       MCPFPROXY:
         condition: service_healthy
     volumes:
-     - ./MCPAPER-data:/PAPER-data:ro
-     - ./MCFABRIC-data:/FABRIC-data:ro
-     - ./MCPF-backups:/backups
-     - ./plugins:/plugins:ro
-     - ./world-list.txt:/world-list.txt:ro
+      - ./MCPAPER-data:/PAPER-data:ro
+      - ./MCFABRIC-data:/FABRIC-data:ro
+      - ./MCPF-backups:/backups
+      - ./plugins:/plugins:ro
+      - ./world-list.txt:/world-list.txt:ro
     networks:
       MCPF_net:
         ipv4_address: 192.168.25.9
-      
-      
-volumes:
-    MCPAPER-data:
-    MCFABRIC-data:
-    MCPROXY-data:
-    MCPF-backups:
-
 networks:
   MCPF_net:
     name: MCPF_net
