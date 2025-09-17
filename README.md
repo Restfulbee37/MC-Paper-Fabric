@@ -1,17 +1,8 @@
 # Minecraft Paper Fabric
 Hybrid Minecraft Server combining both Paper and Fabric using Velocity Proxy. It supports BlueMaps using one web UI for both servers and supports multi-paper worlds using the Multiverse Plugin.
 
-## Versions:
- Currently updated for 1.21.8.
- V3.0 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
- 
- To change to a different version, you must:
- 1. Run the ```init_setup.sh``` script again and select your new version , this will download the mods and plugins for your selected version.
- 2. Remove the old Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
-
-
 ## Overview
-MC-Paper-Fabric is a Docker-based setup that enables a hybrid Minecraft server environment, integrating:
+MC-Paper-Fabric is a Docker-based setup that currently supports Minecraft versions between 1.21.8 and 1.16.5 that enables a hybrid Minecraft server environment, integrating:
 - **Paper Server**: For high-performance player optimised worlds, features plugin support. Good for things like player Hubs or vanilla Minecraft worlds.
 - **Fabric Server**: For lightweight modding capabilities.
 - **Velocity Proxy**: To route players between the two servers while only needing to connect to one.
@@ -31,6 +22,15 @@ This configuration allows players to connect through a single proxy and enjoy bo
 
 - **Dockerized Deployment:** Simplifies setup and management using Docker and Docker Compose.
 - **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
+
+## Versions:
+ V3.0 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+ 
+ To change to a different version, you must:
+ 1. Run the ```init_setup.sh``` script again and select your new version , this will download the mods and plugins for your selected version.
+ 2. Remove the old Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
+
+
 
 ## Repository Structure
 ```bash
