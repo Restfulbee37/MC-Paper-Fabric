@@ -24,11 +24,15 @@ This configuration allows players to connect through a single proxy and enjoy bo
 - **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
 
 ## Versions:
- V3.0 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+ V3.1 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
  
  To change to a different version, you must:
- 1. Run the ```init_setup.sh``` script again and select your new version , this will download the mods and plugins for your selected version.
- 2. Remove the old Plugins and Mods located in the ```plugins/``` and ```mods/``` directories respectively to reflect the version you want to change to.
+
+Run the ```init_setup.sh``` script with the ```-u``` flag as shown below
+```
+$ init_setup.sh -u
+```
+This will let you enter your new Minecraft version and will change all jars & configurations for you :)
 
 
 
