@@ -189,7 +189,28 @@ update_version() {
 }
 
 move_world_files() {
+    if [[ ! -d "$CUSTOM_WORLDS_DIR" ]]; then
+        echo "Error: $CUSTOM_WORLDS_DIR does not exist."
+        exit 1
+    fi
+    
+    echo "Populating world-list.txt..."
+    > world-list.txt
+    for dir in "$CUSTOM_WORLDS_DIR"/paper/*/; do
+        [ -d "$dir" ] && echo "$(basename "$dir")" >> world-list.txt
+    done
+    for dir in "$CUSTOM_WORLDS_DIR"/fabric/*/; do
+        [ -d "$dir" ] && echo "$(basename "$dir")" >> world-list.txt
+    done
 
+    echo "Worlds found:"
+    cat world-list.txt
+
+    echo "Moving world files from $CUSTOM_WORLDS_DIR to server directories..."
+    mv $CUSTOM_WORLDS_DIR/paper/* ./MCPAPER-data/
+    mv $CUSTOM_WORLDS_DIR/fabric/* ./MCFABRIC-data/
+    rm -rf "$CUSTOM_WORLDS_DIR"
+    echo "World files moved successfully."
 }
 
 case "$1" in
