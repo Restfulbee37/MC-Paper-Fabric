@@ -3,6 +3,7 @@
 JARS_FILE=".setup_config/jars.json"
 MODS_DIR="./mods"
 PLUGINS_DIR="./plugins"
+CUSTOM_WORLDS_DIR="./custom-worlds"
 DOCKER_COMPOSE_FILE="docker-compose.yml"
 
 show_help() {
@@ -10,6 +11,7 @@ show_help() {
     echo "Options:"
     echo "  -s, --setup, -i, --install      Starts the initial setup"
     echo "  -u, --update                    Updated the current server with a new Minecraft version"
+    echo "  -m, --move-worlds               Move your world files to a new installation"
     echo "  -h, --help                      Show this help message"
 }
 
@@ -186,6 +188,10 @@ update_version() {
     docker compose up -d
 }
 
+move_world_files() {
+
+}
+
 case "$1" in
     -s|--setup|-i|--install)
         echo "Inital setup started..."
@@ -195,6 +201,11 @@ case "$1" in
     -u|--update|--update-version)
         echo "Updating instance started..."
         update_version
+        exit 0
+        ;;
+    -m|--move-worlds)
+        echo "Moving world files..."
+        move_world_files
         exit 0
         ;;
     -h|--help|"")
