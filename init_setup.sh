@@ -18,9 +18,10 @@ version_select() {
 
     if jq -e --arg v "$MC_VERSION" 'has($v)' "$JARS_FILE" > /dev/null; then
         echo "$MC_VERSION"
+        return 0
     else
-        echo "Error: Minecraft version $MC_VERSION is not supported." >&2
-        exit 1
+        echo "$MC_VERSION"
+        return 1
     fi
 }
 
@@ -58,14 +59,19 @@ edit_compose() {
         echo "Setting Minecraft version to $MC_VERSION in $DOCKER_COMPOSE_FILE"
         sed -i -E "s/^( *VERSION:[[:space:]]*).*/\1$MC_VERSION/" "$DOCKER_COMPOSE_FILE"
     else
-        echo "Error: $DOCKER_COMPOSE_FILE not found!"
+        echo "Error"
         exit 1
     fi
 }
 
 init_setup() {
     MC_VERSION=$(version_select </dev/tty)
-    echo "Minecraft version $MC_VERSION is supported."
+    if [[ $? -eq 0 ]]; then
+        echo "Minecraft version $MC_VERSION is supported."
+    else
+        echo "Error: Minecraft version $MC_VERSION is not supported."
+        exit 1
+    fi
 
     jars_download $MC_VERSION
 
@@ -158,15 +164,23 @@ init_setup() {
 
 update_version() {
     MC_VERSION=$(version_select </dev/tty)
-    echo "Minecraft version $MC_VERSION is supported."
+    if [[ $? -eq 0 ]]; then
+        echo "Minecraft version $MC_VERSION is supported."
+    else
+        echo "Error: Minecraft version $MC_VERSION is not supported."
+        exit 1
+    fi
 
     echo "Removing old jar files"
-    rm mods/BlueMap-*.jar mods/fabric-api-*.jar mods/FabricProxy-Lite-*.jar
-    rm plugins/BlueMap-*.jar
+    rm mods/bluemap-*.jar mods/BlueMap-*.jar mods/fabric-api-*.jar mods/FabricProxy-Lite-*.jar
+    rm plugins/BlueMap-*.jar mods/bluemap-*.jar
     
     jars_download $MC_VERSION
 
     edit_compose $MC_VERSION
+
+    echo "Setting permissions for servers..."
+    sudo chown -R 1080:1080 ./MCFABRIC-data ./MCPAPER-data ./plugins ./mods ./MCPF-backups ./MCPROXY-data ./BlueMaps ./world-list.txt
 
     echo "Update completed successfully. Starting servers..."
     docker compose up -d
