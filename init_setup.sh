@@ -214,6 +214,11 @@ move_world_files() {
 }
 
 case "$1" in
+    -m|--move-worlds)
+        echo "Moving world files..."
+        move_world_files
+        exit 0
+        ;;
     -s|--setup|-i|--install)
         echo "Inital setup started..."
         init_setup
@@ -222,11 +227,6 @@ case "$1" in
     -u|--update|--update-version)
         echo "Updating instance started..."
         update_version
-        exit 0
-        ;;
-    -m|--move-worlds)
-        echo "Moving world files..."
-        move_world_files
         exit 0
         ;;
     -h|--help|"")
