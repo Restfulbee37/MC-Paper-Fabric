@@ -1,5 +1,7 @@
 # CHANGELOG V3.1
-- [ ] Ability to update your instance to a newer Minecraft version from ```init_setup.sh```
+- [x] Ability to update your instance to a newer Minecraft version from ```init_setup.sh```
+- [ ] Testing of feature
+- [x] General clean-up of files - reduces overall package size
 
 
 ## Future Plans
