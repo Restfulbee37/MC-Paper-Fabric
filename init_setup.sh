@@ -209,8 +209,7 @@ move_world_files() {
     echo "Moving world files from $CUSTOM_WORLDS_DIR to server directories..."
     mv $CUSTOM_WORLDS_DIR/paper/* ./MCPAPER-data/
     mv $CUSTOM_WORLDS_DIR/fabric/* ./MCFABRIC-data/
-    rm -rf "$CUSTOM_WORLDS_DIR"
-    echo "World files moved successfully."
+    echo "World files moved successfully. (Keeping directory $CUSTOM_WORLDS_DIR.)"
 }
 
 case "$1" in
