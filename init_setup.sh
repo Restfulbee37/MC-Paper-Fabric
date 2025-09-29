@@ -217,7 +217,6 @@ case "$1" in
     -m|--move-worlds)
         echo "Moving world files..."
         move_world_files
-        exit 0
         ;;
     -s|--setup|-i|--install)
         echo "Inital setup started..."
@@ -239,3 +238,4 @@ case "$1" in
         exit 1
         ;;
 esac
+exit 0
