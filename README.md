@@ -24,7 +24,7 @@ This configuration allows players to connect through a single proxy and enjoy bo
 - **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
 
 ## Versions:
- V3.1 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+ V3.2 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
  
  To change to a different version, you must:
 
