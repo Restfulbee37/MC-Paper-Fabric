@@ -24,7 +24,7 @@ This configuration allows players to connect through a single proxy and enjoy bo
 - **RCON:** Allows for easy server management using standard Minecraft commands outside the Minecraft client.
 
 ## Versions:
- V3.1 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
+ V3.2 currently works for versions between 1.21.8 - 1.16.5 this may work with other versions of Minecraft assuming plugins and mods are changed accordingly. However, they have not been tested.  
  
  To change to a different version, you must:
 
@@ -70,15 +70,35 @@ MC-Paper-Fabric/
 git clone https://github.com/Restfulbee37/MC-Paper-Fabric.git
 cd MC-Paper-Fabric
 ```
-2. **Install your Version**
-    - Run the script at the root of this directory ```init_setup.sh``` and follow the configuration options within the script. This will install the correct core mods and plugins for your chosen Minecraft version as well as set that Minecraft version in the docker-compose file. The script will also ask you to set your difficulty and your gamemode as well as Ops for the server.
+2. **If you already have custom worlds you want to import**
+    - **Note**: MC-paper-fabric cannot predict the names of your worlds and therefore you will have to setup BlueMaps yourself based on the steps below, this also applies the same if you are using Multiverse for Paper.
+    - To set up this server with your own paper and fabric worlds you must place your worlds in the respective ```fabric``` and ```paper``` directories in ```custom-worlds``` **as directories**. See example below:
+    ```bash
+    custom-worlds/
+    |- fabric/
+    |   |- fabric-world1/
+    |   |   |- fabric world files here
+    |- paper/
+    |   |- paper-world1/
+    |   |   |- paper world files here
+    |   |- paper-world2/
+    |   |   |- paper world files here
+    ```
+    - This will auto move these directories to the correct directories during the setup phase and populate the world-list.txt for you.
+    - You would then follow step 3 and beyond as normal however, you will add the ```-m``` flag when running the inital setup script as shown in the example below:
+    ```bash
+    $ ./init_setup.sh -s -m
+    ```
+    - If you do not have any worlds you would like to put in you can skip this step and move onto step 3.
+3. **Install your Version**
+    - Run the script at the root of this directory ```init_setup.sh -s``` and follow the configuration options within the script. This will install the correct core mods and plugins for your chosen Minecraft version as well as set that Minecraft version in the docker-compose file. The script will also ask you to set your difficulty and your gamemode as well as Ops for the server.
     - **NOTE**: There are some sudo commands in this script to do the permission settings at the end (see step 6) if you would prefer to do this manually please follow step 6 otherwise you can ignore step 6.
-3. **Add Mods and Plugins**
+4. **Add Mods and Plugins**
     - Place your Fabric mods in the ```mods/``` directory.
     - Place your Paper plugins in the ```plugins/``` directory.
-4. **Configure Servers**
+5. **Configure Servers**
     - Update ```world-list.txt``` with the names of the worlds you wish to backup. **NOTE:** Your Fabric world **MUST** be the bottom of this list for this to work, see example in the file.
-5. **Configure BlueMaps**
+6. **Configure BlueMaps**
     - If you keep everything as default, it should work out of the box, BlueMaps will render automatically on server start.
     
     ### **If you change the world names:**
@@ -91,15 +111,15 @@ cd MC-Paper-Fabric
     3. Change the name of these config files (these can be to whatever you want).
     4. Inside each cloned config file change the header *"world"* to reflect the directory name of your second world and change the header *"name"* to whatever you like (this will be what shows up in your BlueMaps UI).
     5. To have more than 2 Paper worlds, repeat **steps 1-4** for each world.
-6. **Permissions**
+7. **Permissions**
     - Linux systems must set the file permissions for all volume directories to **1080**:
     ```chown -R 1080:1080 .```
-7. **Start the Services**
+8. **Start the Services**
     ```bash
     docker compose up -d
     ```
     This command will pull and build relevant Docker images and start the Velocity proxy, Paper server, Fabric server and the backup system.
-8. **Navigate between servers**
+9.  **Navigate between servers**
     - To navigate between servers within Minecraft you would type in the commands shown below:
     ```php
     /server paper

@@ -40,4 +40,10 @@ plugins/*
 MCPF-backups/*
 !MCPF-backups/.gitkeep
 
-##############################################
+################## Custom Worlds ##################
+custom-worlds/paper/*
+custom-worlds/fabric/*
+custom-worlds/paper/!gitkeep
+custom-worlds/fabric/!gitkeep
+
+###################################################

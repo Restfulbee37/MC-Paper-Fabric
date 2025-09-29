@@ -3,6 +3,7 @@
 JARS_FILE=".setup_config/jars.json"
 MODS_DIR="./mods"
 PLUGINS_DIR="./plugins"
+CUSTOM_WORLDS_DIR="./custom-worlds"
 DOCKER_COMPOSE_FILE="docker-compose.yml"
 
 show_help() {
@@ -10,6 +11,7 @@ show_help() {
     echo "Options:"
     echo "  -s, --setup, -i, --install      Starts the initial setup"
     echo "  -u, --update                    Updated the current server with a new Minecraft version"
+    echo "  -m, --move-worlds               Move your world files to a new installation"
     echo "  -h, --help                      Show this help message"
 }
 
@@ -186,7 +188,35 @@ update_version() {
     docker compose up -d
 }
 
+move_world_files() {
+    if [[ ! -d "$CUSTOM_WORLDS_DIR" ]]; then
+        echo "Error: $CUSTOM_WORLDS_DIR does not exist."
+        exit 1
+    fi
+    
+    echo "Populating world-list.txt..."
+    > world-list.txt
+    for dir in "$CUSTOM_WORLDS_DIR"/paper/*/; do
+        [ -d "$dir" ] && echo "$(basename "$dir")" >> world-list.txt
+    done
+    for dir in "$CUSTOM_WORLDS_DIR"/fabric/*/; do
+        [ -d "$dir" ] && echo "$(basename "$dir")" >> world-list.txt
+    done
+
+    echo "Worlds found:"
+    cat world-list.txt
+
+    echo "Moving world files from $CUSTOM_WORLDS_DIR to server directories..."
+    mv $CUSTOM_WORLDS_DIR/paper/* ./MCPAPER-data/
+    mv $CUSTOM_WORLDS_DIR/fabric/* ./MCFABRIC-data/
+    echo "World files moved successfully. (Keeping directory $CUSTOM_WORLDS_DIR.)"
+}
+
 case "$1" in
+    -m|--move-worlds)
+        echo "Moving world files..."
+        move_world_files
+        ;;
     -s|--setup|-i|--install)
         echo "Inital setup started..."
         init_setup
@@ -207,3 +237,4 @@ case "$1" in
         exit 1
         ;;
 esac
+exit 0
